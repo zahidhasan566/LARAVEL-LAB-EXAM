@@ -9,6 +9,7 @@
 
 
 <h1> <a href="{{ route('logout.index') }}">logout</a></h1>
+<h4> <a href="{{ route('student.blog') }}">Blog</a></h4>
 <h1> AVAILABLE CAR </h1>
 @foreach($car as $car)
     <tr>
