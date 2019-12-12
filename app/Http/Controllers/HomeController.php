@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\member;
+use App\car;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -41,12 +43,26 @@ class HomeController extends Controller
     	$request->session()->reflash();
     	$request->session()->pull('name');*/
 
+
+
+
     	if($request->session()->has('uname')){
 
-			if(session()->get('type')==1)
-			return view('home.index');
-			else
-				return view('home.emp');
+
+
+
+
+			if(session()->get('type')==1){
+			return view('home.index');}
+			else{
+                $carlist = \App\car::all();
+
+
+
+                $member=(session()->get('userId'));
+                $member2 =  User::find($member);
+                //echo($member);
+				return view('home.emp')->with('member', $member2)->with('car', $carlist);}
     	}else{
     		return redirect('/login');
     	}

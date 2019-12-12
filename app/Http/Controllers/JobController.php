@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\member;
+use App\car;
 
 use Illuminate\Http\Request;
 use Validator;
@@ -17,7 +18,7 @@ class JobController extends Controller
     public function index()
     {
 
-
+           $carlist = \App\car::all();
             $member = \App\member::all();
             // $stds = DB::table('users')->get();
             return view('job.index')->with('member', $member)->with('car', $carlist);

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\member;
+use App\car;
 use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
@@ -37,8 +39,14 @@ class LoginController extends Controller
 			}
 			else if($user->type==2)
 			{
+                $userId=$user->userId;
 				$request->session()->put('type',2);
-				return redirect()->route('home.emp');
+                $request->session()->put('userId',$userId);
+
+                $carlist = \App\car::all();
+                $member = \App\member::all();
+                echo($user->userId);
+				return redirect()->route('home.emp')->with('member', $member)->with('car', $carlist);
 			}
 
 

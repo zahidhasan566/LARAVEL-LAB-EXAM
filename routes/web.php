@@ -39,6 +39,10 @@ Route::post('/student/caredit/{id}', 'StudentController@updatecar');
 Route::get('/student/delete/{id}', 'StudentController@deletecar')->name('student.deletecar');
 
 
+Route::get('/member/{id}/{mid}', 'MemberController@bookindex')->name('student.book');
+Route::get('/member/{id}/{cname}/{cprice}', 'MemberController@confirm')->name('student.confirm');
+
+
     Route::get('/emp/add', 'StudentController@add')->name('student.add');
     Route::post('/emp/add', 'StudentController@store');
     Route::get('/emp/edit/{id}', 'StudentController@edit')->name('student.edit');
