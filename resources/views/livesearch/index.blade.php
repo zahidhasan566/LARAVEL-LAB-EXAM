@@ -20,8 +20,9 @@
                 <table class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th>Customer Name</th>
-                        <th>phone</th>
+                        <th>Customer Id </th>
+                        <th>Car Name </th>
+                        <th>Car price </th>
 
                     </tr>
                     </thead>

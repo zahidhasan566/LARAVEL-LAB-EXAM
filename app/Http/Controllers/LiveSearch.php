@@ -20,17 +20,17 @@ class LiveSearch extends Controller
             $query = $request->get('query');
             if($query != '')
             {
-                $data = DB::table('user')
-                    ->where('name', 'like', '%'.$query.'%')
-                    ->orWhere('username', 'like', '%'.$query.'%')
-                    ->orWhere('phone', 'like', '%'.$query.'%')
+                $data = DB::table('transition')
+                    ->where('cname', 'like', '%'.$query.'%')
+                    ->orWhere('cprice', 'like', '%'.$query.'%')
+
                     ->get();
 
             }
             else
             {
-                $data = DB::table('user')
-                    ->orderBy('userId', 'desc')
+                $data = DB::table('transition')
+                    ->orderBy('id', 'desc')
                     ->get();
             }
             $total_row = $data->count();
@@ -40,9 +40,10 @@ class LiveSearch extends Controller
                 {
                     $output .= '
         <tr>
-         <td>'.$row->username.'</td>
-         <td>'.$row->phone.'</td>
-       
+         <td>'.$row->id.'</td>
+         <td>'.$row->cname.'</td>
+          <td>'.$row->cprice.'</td>
+
         </tr>
         ';
                 }

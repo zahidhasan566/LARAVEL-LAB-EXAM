@@ -28,8 +28,8 @@
         </tr>
         <br>
         <tr>
-         <a href=""> Confirm </a> |
-         <a href=""> Cancel </a>
+         <a href="{{ route('student.confirm', [ $member['userId'],$car->cname,$car->cprice,]) }}"> Confirm </a> |
+            <a href="{{route('logout.index')}}"> Cancel </a> |
 
 
         </tr>
